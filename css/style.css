@@ -1,0 +1,893 @@
+/* =============================================
+   TANDOORI NIGHTS — Stylesheet
+   Matching laindiancuisine.com exactly
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500;700;800&family=Kufam:wght@700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Changa', sans-serif;
+  background: #fff;
+  color: #222;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+a:hover { text-decoration: none; }
+
+/* =============================================
+   NAVBAR  — white bg, dark text
+   ============================================= */
+.navbar.fill-white {
+  background: #fff !important;
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: 64px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+/* Logo — always in navbar-header */
+.navbar-brand {
+  padding: 12px 16px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  float: left;
+}
+.text-logo {
+  font-family: 'Kufam', cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222 !important;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.text-logo span { color: #8b0000; }
+
+/* Nav links (left side) */
+.navbar.fill-white .navbar-nav > li > a {
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: #222 !important;
+  padding: 22px 13px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  background: transparent !important;
+}
+.navbar.fill-white .navbar-nav > li > a:hover,
+.navbar.fill-white .navbar-nav > li.active > a { color: #8b0000 !important; }
+
+/* Right side: flex-align so button is vertically centered */
+.navbar.fill-white .navbar-nav.navbar-right {
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
+.navbar.fill-white .navbar-nav.navbar-right > li {
+  display: flex;
+  align-items: center;
+}
+
+/* Right side: social icons */
+.navbar.fill-white .navbar-nav.navbar-right > li.social-header > a {
+  color: #555 !important;
+  font-size: 15px;
+  padding: 0 9px;
+  background: transparent !important;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.navbar.fill-white .navbar-nav.navbar-right > li.social-header > a:hover { color: #8b0000 !important; }
+
+/* Right side: ORDER ONLINE button */
+.navbar.fill-white .navbar-nav.navbar-right > li.reservation { padding: 0 8px 0 4px; }
+.navbar.fill-white .navbar-nav.navbar-right > li.reservation > a { padding: 9px 17px !important; }
+
+.btn-order-nav {
+  display: inline-block;
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff !important;
+  background-color: #8b0000 !important;
+  padding: 9px 17px;
+  border-radius: 4px;
+  border: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.btn-order-nav:hover { background-color: #6b0000 !important; color: #fff !important; }
+
+/* Ensure the nav link generic rule never overrides the ORDER ONLINE button */
+.navbar.fill-white .navbar-nav > li > a.btn-order-nav {
+  background-color: #8b0000 !important;
+  color: #fff !important;
+  padding: 9px 17px !important;
+}
+.navbar.fill-white .navbar-nav > li > a.btn-order-nav:hover {
+  background-color: #6b0000 !important;
+}
+
+/* Mobile toggle */
+.navbar-toggle { border-color: #ccc; margin-top: 13px; }
+.navbar-toggle .icon-bar { background-color: #555; }
+
+/* =============================================
+   RED BUTTON (used throughout)
+   ============================================= */
+.btn-red {
+  display: inline-block;
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff !important;
+  background-color: #8b0000;
+  padding: 11px 28px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-red:hover {
+  background-color: #6b0000 !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   HERO CAROUSEL  — full width, name overlaid
+   ============================================= */
+.carousel { margin-bottom: 0; position: relative; }
+
+/* Fixed height so Bootstrap's position:absolute slide transition works correctly */
+.carousel-inner { overflow: hidden; }
+.carousel .item {
+  height: 520px;
+  overflow: hidden;
+}
+
+.carousel .item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Dark overlay inside each carousel slide (hides baked-in text on reference images) */
+.hero-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.48);
+  z-index: 5;
+}
+
+/* Restaurant name overlay on hero */
+.hero-title-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+  width: 90%;
+}
+
+.hero-title-overlay h1 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.7);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: 'Changa', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 10px 0 0;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+}
+
+/* Carousel indicators */
+.carousel-indicators li { border-color: rgba(255,255,255,0.7); }
+.carousel-indicators .active { background-color: #8b0000; border-color: #8b0000; }
+
+/* Carousel arrows */
+.carousel-control {
+  background: none !important;
+  opacity: 0.5;
+  width: 6%;
+}
+.carousel-control:hover { opacity: 0.9; }
+
+/* =============================================
+   ABOUT SECTION  — white bg, centered text
+   ============================================= */
+.about-section {
+  background: #fff;
+  padding: 60px 0 50px;
+  text-align: center;
+}
+
+.about-section p {
+  font-family: 'Changa', sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.85;
+  max-width: 740px;
+  margin: 0 auto 20px;
+}
+
+.about-section .cta-wrap {
+  margin-top: 30px;
+}
+
+/* =============================================
+   CTA TWO-COLUMN IMAGE SECTION
+   ============================================= */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cta-col {
+  flex: 1 1 50%;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.cta-col img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.cta-col:hover img { transform: scale(1.04); }
+
+/* Dark overlay */
+.cta-col::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+  z-index: 1;
+}
+
+.cta-content {
+  position: absolute;
+  bottom: 36px;
+  left: 0; right: 0;
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.cta-content h2 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+  margin-bottom: 14px;
+}
+
+/* =============================================
+   GALLERY / PORTFOLIO  — tight 3-col, no gaps
+   ============================================= */
+.portfolio-section {
+  background: #fff;
+  padding: 40px 0 60px;
+}
+
+.gallery-grid-3col {
+  column-count: 3;
+  column-gap: 0;
+}
+
+.gallery-grid-3col figure {
+  margin: 0;
+  padding: 0;
+  break-inside: avoid;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.gallery-grid-3col figure img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.gallery-grid-3col figure:hover img { transform: scale(1.05); }
+
+.gallery-grid-3col .portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(139,0,0,0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.gallery-grid-3col figure:hover .portfolio-overlay { opacity: 1; }
+
+.portfolio-overlay .view-link {
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 8px 20px;
+  border-radius: 3px;
+  transition: background 0.2s, color 0.2s;
+}
+.portfolio-overlay .view-link:hover {
+  background: #fff;
+  color: #8b0000;
+}
+
+/* =============================================
+   PAGE BANNER (subpages)
+   ============================================= */
+.page-banner {
+  background: #f7f7f7;
+  border-bottom: 3px solid #8b0000;
+  padding: 48px 0 42px;
+  text-align: center;
+}
+.page-banner h1 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #222;
+  margin: 0 0 6px;
+}
+.page-banner p {
+  font-family: 'Changa', sans-serif;
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* =============================================
+   MENU PAGE
+   ============================================= */
+.menu-page { background: #fff; padding-bottom: 60px; }
+
+/* ── Sticky outer wrapper (sticky container) + scroll hint ── */
+.menu-tabs-outer {
+  position: sticky;
+  top: 68px;
+  z-index: 100;
+}
+/* Right-edge fade hint — always present, strongest on mobile */
+.menu-tabs-outer::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 0;
+  bottom: 3px; /* sit above the red border */
+  width: 70px;
+  background: linear-gradient(to right, transparent, #222 85%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.menu-tabs-wrap {
+  background: #222;
+  border-bottom: 3px solid #8b0000;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.menu-tabs-wrap::-webkit-scrollbar { display: none; }
+
+.menu-page-header {
+  text-align: center;
+  padding: 48px 0 20px;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 10px;
+}
+.menu-page-header h1 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #222;
+  margin: 0 0 8px;
+}
+.menu-page-header p {
+  font-family: 'Changa', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0;
+}
+
+.menu-tabs-wrap {
+  background: #222;
+  border-bottom: 3px solid #8b0000;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.menu-tabs-wrap::-webkit-scrollbar { display: none; }
+
+.menu-tabs {
+  display: flex;
+  min-width: max-content;
+  padding: 0 10px;
+}
+
+.menu-tab {
+  padding: 14px 16px;
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+.menu-tab:hover { color: #fff; }
+.menu-tab.active { color: #fff; border-bottom-color: #8b0000; }
+
+.menu-category { padding: 44px 0 10px; }
+
+.menu-category-title {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8b0000;
+  margin-bottom: 4px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.menu-category-sub {
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.menu-item {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-left: 3px solid #8b0000;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  transition: box-shadow 0.2s;
+  border-radius: 0 3px 3px 0;
+}
+.menu-item:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+
+.menu-item-name {
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 3px;
+}
+.menu-item-desc {
+  font-family: 'Changa', sans-serif;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+}
+.menu-item-badges { display: flex; gap: 4px; margin-top: 5px; flex-wrap: wrap; }
+.badge-veg   { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 700; font-family: 'Changa', sans-serif; }
+.badge-vegan { background: #f3e5f5; color: #7b1fa2; border: 1px solid #ce93d8; font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 700; font-family: 'Changa', sans-serif; }
+.menu-item-price {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #8b0000;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   CONTACT PAGE
+   ============================================= */
+.contact-section { padding: 60px 0; background: #fff; }
+
+.contact-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.contact-card:last-child { border-bottom: none; }
+
+.contact-icon {
+  width: 42px; height: 42px;
+  background: #8b0000;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 15px; flex-shrink: 0;
+}
+.contact-card h4 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 700; font-size: 15px;
+  color: #222; margin: 0 0 4px;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.contact-card p, .contact-card a {
+  font-family: 'Changa', sans-serif;
+  font-size: 14px; color: #555; line-height: 1.7;
+}
+.contact-card a:hover { color: #8b0000; }
+
+.contact-socials { display: flex; gap: 10px; margin-top: 8px; }
+.contact-socials a {
+  width: 34px; height: 34px;
+  border: 1px solid #ddd; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #666 !important; font-size: 14px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.contact-socials a:hover { background: #8b0000; border-color: #8b0000; color: #fff !important; }
+
+.contact-map iframe {
+  width: 100%; height: 460px; border: none; display: block; border-radius: 3px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.section-heading {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800; font-size: 1.6rem;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: #8b0000; margin-bottom: 6px;
+}
+
+/* =============================================
+   DISH PHOTO MODAL
+   ============================================= */
+.menu-item {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.menu-item:hover {
+  background: #f9f0f0;
+}
+.dish-photo-icon {
+  display: flex;
+  align-items: center;
+  color: #ccc;
+  font-size: 13px;
+  padding-left: 10px;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.menu-item:hover .dish-photo-icon { color: #8b0000; }
+
+.dish-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.dish-modal-overlay.open { display: flex; }
+
+.dish-modal-box {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+  position: relative;
+  animation: modalIn 0.2s ease;
+}
+@keyframes modalIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.dish-modal-close {
+  position: absolute;
+  top: 10px; right: 12px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px; height: 32px;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  transition: background 0.15s;
+}
+.dish-modal-close:hover { background: #8b0000; }
+
+.dish-modal-img-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 62.5%; /* 8:5 aspect ratio */
+  background: #f0f0f0;
+}
+.dish-modal-img-wrap img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.dish-modal-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #8b0000;
+}
+
+.dish-modal-footer {
+  padding: 14px 18px;
+  background: #fff;
+  border-top: 2px solid #8b0000;
+}
+#dish-modal-name {
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* =============================================
+   FOOTER  — very minimal like theirs
+   ============================================= */
+footer {
+  background: #fff;
+  border-top: 3px solid #8b0000;
+  text-align: center;
+  padding: 0;
+}
+
+.footer-socials-row {
+  padding: 30px 0 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.footer-socials-row a {
+  width: 38px; height: 38px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #555; font-size: 15px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.footer-socials-row a:hover {
+  background: #8b0000; border-color: #8b0000; color: #fff;
+}
+
+.footer-copy {
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  color: #888;
+  padding: 10px 20px 20px;
+  line-height: 1.7;
+}
+.footer-copy a { color: #8b0000; }
+.footer-copy a:hover { text-decoration: underline; }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+/* ── Tablet (≤991px) ── */
+@media (max-width: 991px) {
+  .gallery-grid-3col { column-count: 2; }
+  .cta-col img { height: 300px; }
+  .menu-items { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Mobile (≤767px) ── */
+@media (max-width: 767px) {
+
+  /* --- Navbar --- */
+  .navbar.fill-white { min-height: 56px; }
+  /* Center the logo on mobile */
+  .navbar-header {
+    text-align: center;
+    float: none;
+    position: relative;
+  }
+  .navbar-brand {
+    float: none;
+    display: inline-block;
+    height: 56px;
+    padding: 8px 14px;
+  }
+  .text-logo { font-size: 18px; }
+  /* Hamburger button — absolute so it doesn't displace the centered logo */
+  .navbar-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    float: none;
+  }
+  /* Dropdown menu */
+  .navbar.fill-white .navbar-collapse {
+    background: #fff;
+    border-top: 2px solid #8b0000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 0;
+  }
+  .navbar.fill-white .navbar-nav { margin: 0; }
+  .navbar.fill-white .navbar-nav > li > a {
+    padding: 13px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  .navbar.fill-white .navbar-nav > li:last-child > a { border-bottom: none; }
+  .navbar.fill-white .navbar-nav > li > a:active { background: #fafafa !important; }
+
+  /* --- Sticky tabs: offset matches mobile navbar height --- */
+  .menu-tabs-outer { top: 56px; }
+
+  /* --- Show scroll hint on mobile --- */
+  .menu-tabs-outer::after { opacity: 1; }
+
+  /* --- Tabs --- */
+  .menu-tab { padding: 13px 13px; font-size: 11px; letter-spacing: 0.08em; }
+
+  /* --- Hero --- */
+  .carousel .item { height: 280px; }
+  .hero-title-overlay h1 { font-size: 1.7rem; letter-spacing: 0.04em; }
+  .hero-subtitle { font-size: 0.85rem; letter-spacing: 0.12em; }
+
+  /* --- About section --- */
+  .about-section { padding: 36px 0 32px; }
+  .about-section .container { padding: 0 20px; }
+  .about-section p { font-size: 15px; line-height: 1.75; }
+  .btn-red { min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* --- CTA columns: stack vertically --- */
+  .cta-row { flex-direction: column; }
+  .cta-col { flex: 1 1 100%; }
+  .cta-col img { height: 220px; }
+  .cta-content { bottom: 20px; }
+  .cta-content h2 { font-size: 1.25rem; margin-bottom: 12px; }
+
+  /* --- Gallery: 2 cols on mobile --- */
+  .gallery-grid-3col { column-count: 2; gap: 0; }
+
+  /* --- Menu page --- */
+  .menu-page-header { padding: 30px 0 14px; }
+  .menu-page-header h1 { font-size: 1.9rem; }
+  .menu-page-header p { font-size: 11px; letter-spacing: 0.18em; }
+  .menu-category { padding: 28px 0 6px; }
+  .menu-category-title { font-size: 1.45rem; }
+  .menu-category-sub { font-size: 11px; margin-bottom: 14px; }
+  .menu-items { grid-template-columns: 1fr; gap: 10px; }
+  .menu-item {
+    padding: 14px 16px;
+    /* Ensure price never wraps under the name */
+    align-items: center;
+  }
+  .menu-item-name { font-size: 15px; line-height: 1.3; }
+  .menu-item-desc { font-size: 12px; }
+  .menu-item-price { font-size: 15px; }
+
+  /* --- Contact --- */
+  .contact-section { padding: 36px 0; }
+  .contact-card { padding: 14px 0; }
+  .contact-map { margin-top: 28px; }
+  .contact-map iframe { height: 260px; }
+  .section-heading { font-size: 1.4rem; }
+
+  /* --- Page banner (about/gallery/contact) --- */
+  .page-banner { padding: 36px 0 30px; }
+  .page-banner h1 { font-size: 1.9rem; }
+
+  /* --- Footer --- */
+  .footer-socials-row { padding: 22px 0 12px; gap: 10px; }
+  .footer-socials-row a { width: 36px; height: 36px; font-size: 14px; }
+  .footer-copy { font-size: 11px; padding: 6px 16px 18px; line-height: 1.6; }
+}
+
+/* ── Small phones (≤480px) ── */
+@media (max-width: 480px) {
+  /* Hero */
+  .carousel .item { height: 220px; }
+  .hero-title-overlay h1 { font-size: 1.3rem; }
+  .hero-subtitle { font-size: 0.75rem; margin-top: 6px; }
+
+  /* Gallery: single column so images aren't tiny */
+  .gallery-grid-3col { column-count: 1; }
+
+  /* CTA */
+  .cta-col img { height: 190px; }
+  .cta-content h2 { font-size: 1.1rem; }
+  .btn-red { font-size: 11px; padding: 9px 18px; }
+
+  /* Menu */
+  .menu-page-header h1 { font-size: 1.6rem; }
+  .menu-item { flex-direction: row; }
+  .menu-item-name { font-size: 14px; }
+  .menu-item-price { font-size: 14px; }
+
+  /* Contact */
+  .contact-map iframe { height: 220px; }
+
+  /* Dish modal */
+  .dish-modal-overlay { padding: 12px; }
+  .dish-modal-footer { padding: 10px 14px; }
+  #dish-modal-name { font-size: 1rem; }
+}
