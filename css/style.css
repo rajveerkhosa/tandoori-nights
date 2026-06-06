@@ -705,6 +705,194 @@ a:hover { text-decoration: none; }
 }
 
 /* =============================================
+   QR MENU PAGE
+   ============================================= */
+/* No photo modal on the QR page, so items aren't clickable */
+.qrmenu-page .menu-item { cursor: default; }
+.qrmenu-page .menu-item:hover { background: #fafafa; }
+
+/* ── Intro / scan header ── */
+.qr-intro {
+  text-align: center;
+  padding: 40px 0 28px;
+}
+.qr-intro .text-logo {
+  font-size: 30px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.qr-intro p {
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #999;
+  margin: 0;
+}
+
+/* ── Daily buffet highlight card ── */
+.qr-block { padding: 30px 0 6px; }
+
+.qr-block-title {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8b0000;
+  margin-bottom: 4px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+.qr-block-sub {
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #999;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.buffet-card {
+  background: #222;
+  color: #fff;
+  border-radius: 4px;
+  border-left: 4px solid #8b0000;
+  padding: 26px 28px;
+  margin-bottom: 18px;
+}
+.buffet-card h3 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 6px;
+}
+.buffet-card .buffet-tag {
+  display: inline-block;
+  background: #8b0000;
+  color: #fff;
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.buffet-card p {
+  font-family: 'Changa', sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.78);
+  margin: 0 0 14px;
+}
+.buffet-card p:last-child { margin-bottom: 0; }
+.buffet-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.buffet-col h4 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e8a0a0;
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.buffet-col ul { list-style: none; margin: 0; padding: 0; }
+.buffet-col li { padding: 6px 0; }
+.buffet-col li strong {
+  display: block;
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+}
+.buffet-col li span {
+  display: block;
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.6);
+}
+
+.buffet-card .buffet-includes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.buffet-card .buffet-includes span {
+  font-family: 'Changa', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+
+/* ── Combo cards ── */
+.combo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.combo-card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-top: 3px solid #8b0000;
+  border-radius: 0 0 3px 3px;
+  padding: 22px 22px 24px;
+}
+.combo-card h3 {
+  font-family: 'Changa', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin: 0 0 10px;
+}
+.combo-card p {
+  font-family: 'Changa', sans-serif;
+  font-size: 13px;
+  color: #888;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+.combo-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.combo-card li {
+  font-family: 'Changa', sans-serif;
+  font-size: 13px;
+  color: #444;
+  padding: 5px 0 5px 22px;
+  position: relative;
+}
+.combo-card li::before {
+  content: '\f00c'; /* fa-check */
+  font-family: 'FontAwesome';
+  position: absolute;
+  left: 0;
+  color: #8b0000;
+  font-size: 11px;
+}
+
+/* =============================================
    FOOTER  — very minimal like theirs
    ============================================= */
 footer {
@@ -844,6 +1032,15 @@ footer {
   .menu-item-name { font-size: 15px; line-height: 1.3; }
   .menu-item-desc { font-size: 12px; }
   .menu-item-price { font-size: 15px; }
+
+  /* --- QR menu --- */
+  .qr-intro { padding: 28px 0 18px; }
+  .qr-intro .text-logo { font-size: 24px; }
+  .qr-block { padding: 22px 0 4px; }
+  .qr-block-title { font-size: 1.45rem; }
+  .buffet-card { padding: 20px 20px; }
+  .buffet-card h3 { font-size: 1.2rem; }
+  .combo-grid { grid-template-columns: 1fr; gap: 12px; }
 
   /* --- Contact --- */
   .contact-section { padding: 36px 0; }

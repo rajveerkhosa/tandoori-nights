@@ -97,7 +97,8 @@ $(document).ready(function () {
 
   /* ── Menu sticky tab nav ── */
   var tabs = $('.menu-tab');
-  var categories = $('.menu-category');
+  // Include QR-menu blocks (Daily Buffet / Combos) that act as scroll targets
+  var categories = $('.menu-category, .qr-block[id]');
 
   function stickyOffset() {
     // navbar height + tab bar height
